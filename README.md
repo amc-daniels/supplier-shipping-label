@@ -7,4 +7,4 @@ Single-page label generator for suppliers. Generates the 6 × 4 in supplier ship
 - `index.html` is fully self-contained and also works offline when downloaded.
 - Access is gated with a shared supplier username/password (client-side deterrent, not a security control).
 
-Built from `QMS-016 Supplier Shipping Label Template Rev B`; guidelines summarised from `SOP-029 Product Labelling Rev B`.
+Built from `QMS-016 Supplier Shipping Label Template Rev B`; requirements per `QMS-014 Supplier Shipping Label Requirements Rev B`.
