@@ -110,29 +110,32 @@ main{max-width:1280px;margin:0 auto;padding:1.5rem;display:grid;grid-template-co
 .toast.show{opacity:1;transform:translateX(-50%)}
 
 /* ======================================================================
-   THE LABEL — 6 in × 4 in (152.4 × 101.6 mm). Everything in mm so it
-   prints at true size. Mirrors QMS-016 Rev B print area H17:P33.
+   THE LABEL — 6 in × 4 in (152.4 × 101.6 mm). Everything in mm so it prints
+   at true size. Geometry per QMS-014 Rev B: Order# Data Matrix 1.2 in (30.5 mm)
+   top-right with ≥2.5 mm quiet zone; Product Details Data Matrix 1.6 in
+   (40.6 mm) bottom-left with ≥5 mm quiet zone. Layout per QMS-016 Rev B.
    ====================================================================== */
-.label{width:152.4mm;height:101.6mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;overflow:hidden;position:relative;transform-origin:top left;padding:4mm;display:flex;flex-direction:column}
-.label .box{flex:1;border:.35mm solid #000;display:flex;flex-direction:column;min-height:0}
-.label .order{display:flex;height:32mm;flex:none;border-bottom:.9mm solid #000}
-.label .order .kv-col{flex:1;padding:2mm 3mm 1.5mm 3mm;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.label{width:152.4mm;height:101.6mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;overflow:hidden;position:relative;transform-origin:top left;padding:2.5mm;display:flex;flex-direction:column}
+.label .box{flex:1;display:flex;flex-direction:column;min-height:0}
+.label .order{display:flex;height:41.5mm;flex:none;border-bottom:.9mm solid #000}
+.label .order .kv-col{flex:1;padding:2mm 2.5mm 2.5mm 2.5mm;display:flex;flex-direction:column;justify-content:space-around;min-width:0}
 .label .kv{display:flex;align-items:baseline;gap:2mm;white-space:nowrap;overflow:hidden;line-height:1.15}
 .label .kv .k{flex:none;font-weight:400}
 .label .kv .v{font-weight:700;overflow:hidden;text-overflow:ellipsis}
-.label .order .kv{font-size:6.2mm}
-.label .order .kv .k{width:22mm}
-.label .order .dm-col{flex:none;width:40mm;display:flex;flex-direction:column;align-items:center;padding:1.5mm 2mm 1.5mm 0}
-.label .order .dm-col .h{font-weight:700;font-size:6.2mm;line-height:1.1;letter-spacing:.01em}
-.label .bc{display:flex;align-items:center;justify-content:center;flex:1;min-height:0;width:100%}
+.label .order .kv{font-size:6.4mm}
+.label .order .kv .k{width:23mm}
+.label .order .dm-col{flex:none;width:38mm;display:flex;flex-direction:column;align-items:center;padding:.5mm 2.5mm 3mm 2.5mm}
+.label .order .dm-col .h{font-weight:700;font-size:5.2mm;line-height:1;letter-spacing:.01em;margin-bottom:2.5mm}
+.label .order .dm-col .bc{width:30.5mm;height:30.5mm;flex:none}
+.label .bc{display:flex;align-items:center;justify-content:center}
 .label .bc svg{width:100%;height:100%;display:block}
 .label .bc.empty{background:repeating-linear-gradient(45deg,#f1f1f1 0 1mm,#fff 1mm 2mm)}
-.label .product{flex:1;display:flex;flex-direction:column;min-height:0;padding:1mm 3mm 2mm 3mm}
-.label .product .h{font-weight:700;font-size:6.6mm;line-height:1.2;margin-bottom:.5mm}
-.label .product .cols{flex:1;display:flex;gap:3mm;min-height:0}
-.label .product .dm{flex:none;width:44mm;display:flex;align-items:center;justify-content:center;padding:1mm 1mm 1mm 0}
-.label .product .dm .bc{height:42mm;width:42mm;flex:none}
-.label .product .txt{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between}
+.label .product{flex:1;display:flex;flex-direction:column;min-height:0;padding:.5mm 2.5mm 0 2.5mm}
+.label .product .h{font-weight:700;font-size:5.8mm;line-height:1.1;margin-bottom:5mm}
+.label .product .cols{flex:1;display:flex;gap:0;min-height:0;align-items:flex-start}
+.label .product .dm{flex:none;width:45.6mm;padding-right:5mm}
+.label .product .dm .bc{height:40.6mm;width:40.6mm;flex:none}
+.label .product .txt{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;height:40.6mm}
 .label .product .kv{font-size:5.6mm}
 .label .product .desc .k{font-size:5.4mm;font-weight:400;line-height:1.15}
 .label .product .desc .v{font-size:5.6mm;font-weight:700;line-height:1.15;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;height:calc(5.6mm * 1.15 * 2)}
@@ -142,9 +145,7 @@ main{max-width:1280px;margin:0 auto;padding:1.5rem;display:grid;grid-template-co
 .label .product .pair{display:flex;gap:2mm;align-items:baseline}
 .label .product .pair .kv:first-child{flex:1;min-width:0}
 .label .product .pair .kv:last-child{flex:none;max-width:45%}
-.label .product .pair .kv:last-child .k{text-align:right}
-.label .print-only{position:absolute;right:4.5mm;bottom:.7mm;font-size:2.2mm;line-height:1;color:#000;letter-spacing:.03em}
-
+.label .print-only{position:absolute;right:3mm;bottom:.6mm;font-size:2.2mm;line-height:1;color:#000;letter-spacing:.03em}
 
 /* ---------- Guidelines band ---------- */
 .guides{max-width:1280px;margin:1rem auto 3rem;padding:0 1.5rem;scroll-margin-top:72px}
@@ -170,6 +171,27 @@ main{max-width:1280px;margin:0 auto;padding:1.5rem;display:grid;grid-template-co
 .guide li{margin:.35rem 0;break-inside:avoid}
 .guide b{color:var(--ink);font-weight:600}
 .guide .note{margin:.9rem 0 0;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.15);font-size:var(--text-xs);color:#9ca3af}
+
+.guide.wide{grid-column:span 3}
+@media (max-width:1000px){.guide.wide{grid-column:span 2}}
+@media (max-width:640px){.guide.wide{grid-column:span 1}}
+.guide .sub{margin:-.25rem 0 .75rem}
+.tbl-wrap{overflow-x:auto}
+table.spec{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+table.spec th{text-align:left;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--accent);padding:.5rem .65rem}
+table.spec th:first-child{border-radius:6px 0 0 0}table.spec th:last-child{border-radius:0 6px 0 0}
+table.spec td{padding:.5rem .65rem;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2)}
+table.spec td:first-child{color:var(--muted);width:2rem}
+table.spec td:nth-child(2){font-weight:600;color:var(--ink);white-space:nowrap}
+table.spec code{font-family:var(--mono);background:var(--paper);padding:.05rem .35rem;border-radius:4px;color:var(--ink);white-space:nowrap}
+.guide ul ul{margin-top:.25rem}
+.guide .tip{margin:.75rem 0 0;padding:.5rem .7rem;background:var(--accent-soft);color:#0a4d43;border-radius:6px;font-size:var(--text-xs)}
+.guide .addr{font-style:normal;margin-top:.9rem;padding-top:.75rem;border-top:1px solid var(--line-2);line-height:1.6}
+.guide.contact .two{display:grid;grid-template-columns:1.4fr 1fr;gap:1.5rem;align-items:start}
+.guide.contact .addr{margin:0;padding:.75rem 1rem;border:1px solid var(--line-2);border-radius:8px;background:var(--paper)}
+@media (max-width:700px){.guide.contact .two{grid-template-columns:1fr}}
+.guide a{color:var(--accent);font-weight:600}
+.lede a{font-weight:600}
 .guide-foot{margin:1.25rem 0 0;font-size:var(--text-xs);color:var(--muted);max-width:90ch}
 @media (max-width:900px){.guides{scroll-margin-top:180px}}
 @media print{.guides{display:none !important}}
@@ -206,7 +228,7 @@ body.locked #gate{display:flex}
   <form class="card" id="gate-form" autocomplete="on">
     <div class="brand">
       <svg viewBox="0 0 32 32" aria-hidden="true" fill="none"><rect width="32" height="32" rx="6" fill="currentColor"/><path fill="#fff" d="M7 7h5v5H7zM14 7h4v4h-4zM20 7h5v5h-5zM7 14h4v4H7zM13 13h6v6h-6zM21 14h4v4h-4zM7 20h5v5H7zM14 21h4v4h-4zM20 20h5v5h-5z"/></svg>
-      <div>Supplier Shipping Label<small>QMS-016 Rev B · Daniels Health</small></div>
+      <div>Supplier Shipping Label<small>Daniels Health · QMS-014 Rev B</small></div>
     </div>
     <h1 id="gate-title">Supplier sign in</h1>
     <p>Enter the access details provided by Daniels Health to open the label generator.</p>
@@ -224,7 +246,7 @@ body.locked #gate{display:flex}
       <rect width="32" height="32" rx="6" fill="currentColor"/>
       <path fill="#fff" d="M7 7h5v5H7zM14 7h4v4h-4zM20 7h5v5h-5zM7 14h4v4H7zM13 13h6v6h-6zM21 14h4v4h-4zM7 20h5v5H7zM14 21h4v4h-4zM20 20h5v5h-5z"/>
     </svg>
-    <div>Supplier Shipping Label<small>QMS-016 Rev B · Daniels Health · 6 × 4 in</small></div>
+    <div>Supplier Shipping Label<small>Daniels Health · QMS-014 Rev B · 6 × 4 in</small></div>
   </div>
   <div class="spacer"></div>
   <a class="btn ghost" href="#guidelines">Guidelines</a>
@@ -260,7 +282,7 @@ body.locked #gate{display:flex}
             <input id="vendor" name="vendor" type="text" placeholder="Company name">
           </div>
           <div class="field">
-            <label for="date">Date <span class="req">*</span></label>
+            <label for="date">Date manufactured / packaged <span class="req">*</span></label>
             <input id="date" name="date" type="date">
           </div>
         </div>
@@ -285,7 +307,7 @@ body.locked #gate{display:flex}
           </div>
           <div class="field">
             <label for="lot">Lot / Batch <span class="req">*</span></label>
-            <input id="lot" name="lot" type="text" placeholder="Your lot code" spellcheck="false">
+            <input id="lot" name="lot" type="text" placeholder="Unique per production run" spellcheck="false">
           </div>
           <div class="field">
             <label for="qty">Quantity <span class="req">*</span></label>
@@ -296,8 +318,8 @@ body.locked #gate{display:flex}
           <div class="field">
             <label for="uom">Unit of measure <span class="req">*</span></label>
             <input id="uom" name="uom" type="text" list="uom-list" placeholder="EA" style="text-transform:uppercase" maxlength="6">
-            <datalist id="uom-list"><option value="EA">Each</option><option value="KG">Kilograms</option><option value="LB">Pounds</option></datalist>
-            <div class="hint">Quantity is for the lowest packaging level this label is applied to.</div>
+            <datalist id="uom-list"><option value="EA">Each</option><option value="KG">Kilograms</option><option value="LB">Pounds</option><option value="M">Metres</option></datalist>
+            <div class="hint">Quantity is the number of units in the box (or on the pallet, for a pallet label).</div>
           </div>
         </div>
       </form>
@@ -333,81 +355,111 @@ body.locked #gate{display:flex}
 <section class="guides" id="guidelines">
   <div class="guides-head">
     <div>
-      <p class="eyebrow">Supplier guidelines</p>
-      <h2>Printing this label &amp; Daniels labelling requirements</h2>
-      <p class="lede">Everything a supplier needs to ship compliant, scannable product to Daniels Health. The shipping-label rules come from QMS-016 Rev B; the product-labelling requirements are summarised from SOP-029 Product Labelling Rev B (10 March 2026).</p>
+      <p class="eyebrow">QMS-014 Rev B · Supplier Shipping Label Requirements</p>
+      <h2>Labelling requirements for all shipments to Daniels Health</h2>
+      <p class="lede">These requirements apply to every supplier shipment to the Daniels Health warehouse in Racine, WI. They ensure traceability, standardisation and barcode-scanning compatibility across all packaging we receive. Labels in this format are <b>mandatory on all shipments</b>. Before full implementation, email a test label to <a href="mailto:quality@danielshealth.com">quality@danielshealth.com</a> for review — labels must be approved by Daniels Health before use.</p>
     </div>
   </div>
 
   <div class="guide-grid">
     <article class="guide featured">
       <div class="num">1</div>
-      <h3>Printing the shipping label (QMS-016)</h3>
+      <h3>Printing this label</h3>
       <ol>
-        <li>Complete every field above and apply <b>one label to each box, pallet or packaging unit</b>. Quantity is for the lowest packaging level the label is applied to.</li>
-        <li>Print on self-adhesive <b>6 × 4 in (152 × 102 mm)</b> labels, <b>black on white</b>, at a minimum of <b>300 DPI</b>.</li>
-        <li>In the print dialog set scale to <b>100% / Actual size</b> and margins to <b>None</b>. Never use "Fit to page" — scaling changes the barcode module size and can stop it scanning.</li>
+        <li>Complete every field above. The generator produces the exact QMS-014 layout with both Data Matrix codes at the specified size and position.</li>
+        <li>Print on self-adhesive <b>6 × 4 in (152 × 102 mm)</b> labels — the USA standard shipping-label size — at <b>300 DPI or higher</b>, black on white with at least <b>80% contrast</b>. Labels must resist smudging, tearing and fading.</li>
+        <li>In the print dialog set scale to <b>100% / Actual size</b> and margins to <b>None</b>. Never use "Fit to page" — scaling changes the barcode module size.</li>
         <li>Printing on Letter or A4 sheets? Choose the sheet size in the toolbar; the label is placed top-left at true size.</li>
-        <li><b>Scan a test label</b> before applying labels to the shipment. Both Data Matrix codes must read: the ORDER # code returns the PO number, the PRODUCT DETAILS code returns <code>Item%Qty%Lot</code>.</li>
+        <li><b>Scan a test label</b> before applying labels to the shipment. The ORDER # code must return the PO number and the PRODUCT DETAILS code must return <code>Item%Qty%Lot</code>.</li>
         <li>Use only Daniels product codes. If yours is missing, contact Daniels Health before shipping — unrecognised codes may be rejected at receiving.</li>
       </ol>
       <p class="note">Barcodes are generated inside this page. No internet connection or external barcode website is needed once it is open.</p>
     </article>
 
-    <article class="guide">
+    <article class="guide wide">
       <div class="num">2</div>
-      <h3>Approved artwork only</h3>
-      <ul>
-        <li>Print product labels only from the <b>controlled, revision-managed label drawing</b> issued by Daniels. The label code and revision appear on the label.</li>
-        <li>Before producing any new label or revision, return an <b>artwork proof</b> to Daniels showing the final printed layout. Production must not start until Daniels QA has approved the proof.</li>
-        <li>QA checks content, formatting, barcode placement, colours, dimensions and revision information against the approved artwork.</li>
-      </ul>
+      <h3>Required fields</h3>
+      <p class="sub">Each label must contain the following fields in human-readable text and, where specified, encoded in a barcode.</p>
+      <div class="tbl-wrap">
+      <table class="spec">
+        <thead><tr><th>#</th><th>Field</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Order#</td><td>Daniels-issued PO number</td><td><code>PO-000045</code></td></tr>
+          <tr><td>2</td><td>Vendor</td><td>The full name of your company</td><td>ABC Supply Co.</td></tr>
+          <tr><td>3</td><td>Date</td><td>The date the goods were <b>manufactured or packaged</b> (YYYY-MM-DD)</td><td><code>2025-03-04</code></td></tr>
+          <tr><td>4</td><td>Order# 2D Data Matrix</td><td>A 2D Data Matrix code that captures the Order#</td><td><code>PO-000045</code></td></tr>
+          <tr><td>5</td><td>Description</td><td>Daniels product description</td><td>S14 Regular Collector - USA</td></tr>
+          <tr><td>6</td><td>Item#</td><td>Daniels product code</td><td><code>1001107500</code></td></tr>
+          <tr><td>7</td><td>Lot/Batch Number</td><td>Your internal batch number for traceability. <b>Must be unique per production run.</b></td><td><code>123456</code></td></tr>
+          <tr><td>8</td><td>Quantity</td><td>Number of units contained in the box</td><td><code>72</code></td></tr>
+          <tr><td>9</td><td>UOM</td><td>Unit of measure — EA for each, KG for kilograms, M for metres, etc.</td><td><code>EA</code></td></tr>
+          <tr><td>10</td><td>Product Details 2D Data Matrix</td><td>Encodes <b>Item Number % Qty % Lot/Batch</b>, separated by the <b>%</b> character</td><td><code>1001107500%72%123456</code></td></tr>
+          <tr><td>11</td><td>Revision</td><td>Revision level of the product as per the Daniels drawing</td><td><code>B</code></td></tr>
+        </tbody>
+      </table>
+      </div>
     </article>
 
     <article class="guide">
       <div class="num">3</div>
-      <h3>Barcode requirements</h3>
+      <h3>Label dimensions &amp; Data Matrix specification</h3>
       <ul>
-        <li>Use the <b>symbology on the drawing</b> — typically Code 128, GS1 Data Matrix or Code 39.</li>
-        <li>Barcode and human-readable text <b>must encode identical data</b>.</li>
-        <li>Respect the specified module size (X-dimension), barcode dimensions and placement.</li>
-        <li>Barcode numbers, GTINs and UDI data are <b>allocated by Daniels</b>. Verify every print batch is readable and correctly formatted before printing is authorised.</li>
+        <li><b>Label size:</b> 6 × 4 in (152 × 102 mm). This is a minimum layout guide — slightly larger is acceptable if every field stays legible and scannable.</li>
+        <li><b>Barcode type:</b> 2D Data Matrix for both codes.</li>
+        <li><b>Product Details code:</b> bottom-left, 1.6 × 1.6 in (4 × 4 cm), minimum <b>5 mm (0.2 in)</b> clear quiet zone on all sides. Encodes <code>Item%Qty%Lot</code>.</li>
+        <li><b>Order # code:</b> top-right, 1.2 × 1.2 in (3 × 3 cm), minimum <b>2.5 mm (0.1 in)</b> clear quiet zone on all sides. Encodes the Daniels PO number.</li>
+        <li><b>Quiet zones</b> must not be encroached by text or other elements.</li>
+        <li><b>Module (cell) size:</b> 0.4 – 0.6 mm (0.015 – 0.024 in).</li>
+        <li><b>Print quality:</b> minimum 80% contrast, 300 DPI or higher, resistant to smudging, tearing and fading.</li>
       </ul>
     </article>
 
     <article class="guide">
       <div class="num">4</div>
-      <h3>Materials &amp; durability</h3>
+      <h3>Box labelling &amp; placement</h3>
       <ul>
-        <li>Labels must stay <b>legible and adhered for the product's service life</b>.</li>
-        <li>Withstand repeated wash cycles, cleaning chemicals and disinfectants, abrasion, moisture and humidity, temperature variation and healthcare-typical UV exposure.</li>
-        <li>No lifting, bubbling, delamination or adhesive migration.</li>
-        <li>Use colour-fast inks; clear over-laminates on reusable collectors; substrate-appropriate adhesion (e.g. flame treatment or Polyfuze on HDPE, ABS-compatible adhesives on ABS).</li>
+        <li>Apply labels to <b>both sides of the box and/or pallet</b>, so a label is front-facing and clearly visible when stacked on a pallet or stored away.</li>
+        <li>Avoid the top, bottom or edges of the box.</li>
+        <li>On large boxes, position the label at least <b>5 cm from the bottom</b> to prevent damage.</li>
+        <li>Labels must not be obstructed by straps, tape or shrink wrap.</li>
+        <li>Label the <b>lowest unit of packaging</b> as shipped:
+          <ul>
+            <li>Items packed in boxes → each box is labelled directly, front and back.</li>
+            <li>Items shipped loose on a pallet → the pallet is the lowest level and is labelled directly, front and back.</li>
+          </ul>
+        </li>
       </ul>
     </article>
 
     <article class="guide">
       <div class="num">5</div>
-      <h3>Storage, handling &amp; application</h3>
+      <h3>Pallet labelling</h3>
       <ul>
-        <li>Store label stock <b>clean and dry</b>, away from direct sunlight, excessive heat, humidity and physical damage.</li>
-        <li>Do not use labels past the manufacturer's shelf life; remove deteriorated stock from use.</li>
-        <li><b>Segregate stock by revision</b> so obsolete labels cannot be used by mistake.</li>
-        <li>Apply labels per the approved product drawing, using placement jigs where specified.</li>
+        <li>Every pallet must carry a <b>pallet label summarising the contents of the whole pallet</b>, in the same format, structure and barcode requirements as the box label.</li>
+        <li>For a <b>mixed pallet</b> (more than one product or distinct product grouping), create a separate pallet label for each unique product grouping.</li>
+        <li>Affix pallet labels to the <b>front and back</b> of the pallet.</li>
+        <li>Pallet labels are <b>in addition to</b> box-level labels, not a replacement.</li>
       </ul>
+      <p class="tip">Tip: use the print queue above to prepare box labels and the pallet summary label in one run.</p>
     </article>
 
-    <article class="guide">
+    <article class="guide wide contact">
       <div class="num">6</div>
-      <h3>Changes &amp; inspection</h3>
+      <h3>Approval &amp; contact</h3>
+      <div class="two">
       <ul>
-        <li>Any change to wording, hazard symbols, materials, colours, barcode or UDI structure, dimensions or transport markings requires <b>Daniels change-control approval before implementation</b>.</li>
-        <li>After a change is approved, obsolete labels must be removed, destroyed or used up only as directed by Daniels.</li>
-        <li>Labels and labelled product are inspected at Daniels inwards goods against the drawing; non-conforming items are rejected.</li>
+        <li>Before full implementation, suppliers must submit a <b>test label for approval</b>. Labels must be reviewed and approved by Daniels Health before use.</li>
+        <li>Email test labels to <a href="mailto:quality@danielshealth.com">quality@danielshealth.com</a>.</li>
       </ul>
+      <address class="addr">
+        <b>Daniels Health | Supply Chain</b><br>
+        3600 S Memorial Dr, Racine, WI 53403<br>
+        <a href="https://www.danielshealth.com" target="_blank" rel="noopener">www.danielshealth.com</a> · <a href="mailto:quality@danielshealth.com">quality@danielshealth.com</a>
+      </address>
+      </div>
     </article>
   </div>
-  <p class="guide-foot">Sources: QMS-016 Supplier Shipping Label Template Rev B · SOP-029 Product Labelling Rev B (Daniels Corporation International Pty Ltd). This page summarises supplier-facing requirements; the controlled documents take precedence.</p>
+  <p class="guide-foot">Source: QMS-014 Rev B Supplier Shipping Label Requirements, Daniels Health Supply Chain. Label layout per QMS-016 Rev B Supplier Shipping Label Template. The controlled documents take precedence over this page.</p>
 </section>
 
 <div id="print-root"></div>
@@ -608,7 +660,7 @@ function labelNode(rec){
         <div class="dm"><div class="bc ${pSvg?'':'empty'}">${pSvg}</div></div>
         <div class="txt">
           <div class="desc"><div class="k">Description:</div><div class="v ${desc.length>52?'long':''}">${esc(desc)}</div></div>
-          <div class="pair"><div class="kv"><span class="k">Item:</span><span class="v">${esc(rec.item)}</span></div><div class="kv"><span class="k">Rev:</span><span class="v">${esc(rec.rev)}</span></div></div>
+          <div class="pair"><div class="kv"><span class="k">Item#:</span><span class="v">${esc(rec.item)}</span></div><div class="kv"><span class="k">Rev:</span><span class="v">${esc(rec.rev)}</span></div></div>
           <div class="kv"><span class="k">Lot/Batch:</span><span class="v">${esc(rec.lot)}</span></div>
           <div class="pair"><div class="kv"><span class="k">Quantity:</span><span class="v">${esc(rec.qty)}</span></div><div class="kv"><span class="k">UOM:</span><span class="v">${esc(rec.uom)}</span></div></div>
         </div>
